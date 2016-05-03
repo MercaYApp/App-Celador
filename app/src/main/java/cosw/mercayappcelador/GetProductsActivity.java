@@ -58,6 +58,7 @@ public class GetProductsActivity extends ActionBarActivity {
     private Button scanBtn;
     private double totalVenta, totalPeso = 0;
     private String idFactura = "";
+    private boolean error = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -347,19 +348,25 @@ public class GetProductsActivity extends ActionBarActivity {
         GetFacturaAsync factura = new GetFacturaAsync();
         String url = "http://mercayapp1.herokuapp.com/invoices/"+id;
         factura.execute(url);
+        if(error==true){
+            mensaje("Error en la autenticación");
+            Intent i = new Intent(this, MainActivity.class);
+            startActivity(i);
+        }
     }
 
     /**
      * Hace get del producto en el API
      */
     private class GetFacturaAsync extends AsyncTask<String, Integer, JSONArray> {
-
         protected JSONArray doInBackground(String... url) {
             StringBuilder builder = new StringBuilder();
+
             try {
+                Intent intent = getIntent();
                 HttpClient client = new DefaultHttpClient();
                 HttpGet httpGet = new HttpGet(url[0]);
-                httpGet.addHeader(BasicScheme.authenticate(new UsernamePasswordCredentials("22", "123"), "UTF-8", false));
+                httpGet.addHeader(BasicScheme.authenticate(new UsernamePasswordCredentials(intent.getStringExtra("user"), intent.getStringExtra("password")), "UTF-8", false));
                 HttpResponse response = client.execute(httpGet);
                 StatusLine statusLine = response.getStatusLine();
                 HttpEntity entity = response.getEntity();
@@ -375,6 +382,7 @@ public class GetProductsActivity extends ActionBarActivity {
                 ja = jo.getJSONArray("productses");
             } catch (Exception e){
                 e.printStackTrace();
+                error=true;
                 Log.e(GetProductsActivity.class.toString(),
                         "GET request failed " + e.getLocalizedMessage());
             }
