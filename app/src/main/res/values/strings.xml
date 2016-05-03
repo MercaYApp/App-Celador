@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MercaYApp-Seguridad</string>
+    <string name="getProducts">Listar productos</string>
+    <string name="inicio">Inicio</string>
+    <string name="regresar">Regresar</string>
+    <string name="codigoDeBarras">Código de barras</string>
+    <string name="escanearFactura">Escanear factura</string>
+    <string name="password">Contraseña</string>
+    <string name="user">Usuario</string>
+    <string name="ingresar">Ingresar</string>
+
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="none"
+    android:layout_weight="1"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:stretchColumns="0,1"
+        android:id="@+id/main_table"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <Button
+            android:layout_width="96dp"
+            android:layout_height="60dp"
+            android:text="@string/escanearFactura"
+            android:id="@+id/scanButton"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.06"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:onClick="onClick" />
+    </TableLayout>
+
+</ScrollView>

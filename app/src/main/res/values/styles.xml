@@ -1,0 +1,13 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:buttonStyle">@style/MyCustomButton</item>
+    </style>
+
+    <style name="MyCustomButton" parent="android:Widget.Button">
+        <item name="android:background">@color/button</item>
+        <item name="android:textColor">@color/letraBlanca</item>
+
+    </style>
+</resources>
