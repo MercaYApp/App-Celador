@@ -16,7 +16,7 @@ import android.widget.Toast;
 public class MainActivity extends ActionBarActivity {
     private String user, password;
     private EditText campoUser, campoPassword;
-    private Button btnIngresar, btnCrearCodigo;
+    private Button btnIngresar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +27,6 @@ public class MainActivity extends ActionBarActivity {
     private void inicializarCampos(){
         campoUser = (EditText)findViewById(R.id.campoUser);
         campoPassword = (EditText)findViewById(R.id.campoPassword);
-        btnIngresar = (Button)findViewById(R.id.btnIngresar);
-        btnCrearCodigo = (Button)findViewById(R.id.btnCrearCodigo);
     }
 
     @Override
@@ -45,11 +43,6 @@ public class MainActivity extends ActionBarActivity {
         Intent intent = new Intent(this, GetProductsActivity.class);
         intent.putExtra("user", user);
         intent.putExtra("password", password);
-        startActivity(intent);
-    }
-
-    public void crearCodigo(View v){
-        Intent intent = new Intent(this, TestBarCode.class);
         startActivity(intent);
     }
 
