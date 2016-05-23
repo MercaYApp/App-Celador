@@ -2,6 +2,7 @@ package cosw.mercayappcelador;
 
 import android.annotation.TargetApi;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -59,6 +60,7 @@ public class GetProductsActivity extends ActionBarActivity {
     private double totalVenta, totalPeso = 0;
     private String idFactura = "";
     private boolean error = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -355,6 +357,8 @@ public class GetProductsActivity extends ActionBarActivity {
         }
     }
 
+
+
     /**
      * Hace get del producto en el API
      */
@@ -396,23 +400,24 @@ public class GetProductsActivity extends ActionBarActivity {
         protected void onPostExecute(JSONArray result) {
             try {
                 if(jo!=null) {
-
                     crearTabla();
                     poblarTabla();
                     poblarDatosTotal();
                     mensaje("Ya se cargaron todos los productos de la factura!");
                 }else {
+                    tl.removeViews(1, tl.getChildCount()-1); //Eliminar anterior consulta de factura
                     mensaje("NO SE HA ENCONTRADO FACTURA");
                     Vibrator v = (Vibrator) getSystemService(VIBRATOR_SERVICE);
                     v.vibrate(3000);
                 }
-
-            } catch (JSONException e) {
-
+                ja=null;
+            } catch (Exception e) {
+                mensaje("NO SE HA ENCONTRADO FACTURA");
                 e.printStackTrace();
             }
         }
     }
+
 
     private void mensaje(String mensaje) {
         Toast toast1 = Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_SHORT);
