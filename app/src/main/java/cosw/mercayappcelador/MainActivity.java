@@ -1,8 +1,12 @@
 package cosw.mercayappcelador;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -38,6 +42,7 @@ public class MainActivity extends ActionBarActivity {
     private boolean error = false;
     private JSONObject jo = null;
     private Context context = this;
+    private View progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +54,7 @@ public class MainActivity extends ActionBarActivity {
     private void inicializarCampos(){
         campoUser = (EditText)findViewById(R.id.campoUser);
         campoPassword = (EditText)findViewById(R.id.campoPassword);
+        progress = findViewById(R.id.login_progress);
     }
 
     @Override
@@ -59,18 +65,14 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void ingresar(View v){
+        mensaje("Autenticando");
         user = campoUser.getText().toString();
         password = campoPassword.getText().toString();
-        mensaje("Usuario: "+user+" \nPassword: "+password);
         try {
             buscarCliente(user);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        /*Intent intent = new Intent(this, GetProductsActivity.class);
-        intent.putExtra("user", user);
-        intent.putExtra("password", password);
-        startActivity(intent);*/
     }
 
     private void mensaje(String mensaje) {
@@ -85,11 +87,6 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        /*if (id == R.id.menuEscanear) {
-            Intent intent = new Intent(this, ScanActivity.class);
-            startActivity(intent);
-        }*/
         if (id == R.id.escanearFactura) {
             Intent intent = new Intent(this, GetProductsActivity.class);
             startActivity(intent);
@@ -107,15 +104,10 @@ public class MainActivity extends ActionBarActivity {
      * @throws JSONException
      */
     public void buscarCliente(String id) throws JSONException {
-        //showProgress(true);
+        showProgress(true);
         GetClienteAsync cli = new GetClienteAsync();
         String url = "http://mercayapp1.herokuapp.com/clientsApp/"+id;
         cli.execute(url);
-        /*if(error==true){
-            mensaje("Error en la autenticación");
-            Intent i = new Intent(this, MainActivity.class);
-            startActivity(i);
-        }*/
     }
 
 
@@ -158,7 +150,6 @@ public class MainActivity extends ActionBarActivity {
                     builder.append(line);
                 }
                 jo = new JSONObject(builder.toString());
-//                ja = jo.getJSONArray("productses");
             } catch (Exception e){
                 error = true;
                 e.printStackTrace();
@@ -183,12 +174,48 @@ public class MainActivity extends ActionBarActivity {
                 intent.putExtra("password", password);
                 startActivity(intent);
 
-                //showProgress(false);
+                showProgress(false);
                 mensaje("Bienvenido!");
             }
         }
     }
 
+    /**
+     * Shows the progress UI and hides the login form.
+     */
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
+    private void showProgress(final boolean show) {
+        // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
+        // for very easy animations. If available, use these APIs to fade-in
+        // the progress spinner.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
+            int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
+
+            /*
+            viewReposterias.setVisibility(show ? View.GONE : View.VISIBLE);
+            viewReposterias.animate().setDuration(shortAnimTime).alpha(
+                    show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    viewReposterias.setVisibility(show ? View.GONE : View.VISIBLE);
+                }
+            });*/
+
+            progress.setVisibility(show ? View.VISIBLE : View.GONE);
+            progress.animate().setDuration(shortAnimTime).alpha(
+                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    progress.setVisibility(show ? View.VISIBLE : View.GONE);
+                }
+            });
+        } else {
+            // The ViewPropertyAnimator APIs are not available, so simply show
+            // and hide the relevant UI components.
+            progress.setVisibility(show ? View.VISIBLE : View.GONE);
+            progress.setVisibility(show ? View.GONE : View.VISIBLE);
+        }
+    }
 
 
 }
