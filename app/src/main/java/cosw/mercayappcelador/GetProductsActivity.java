@@ -346,6 +346,7 @@ public class GetProductsActivity extends ActionBarActivity {
      * @throws JSONException
      */
     public void buscarFactura(String id) throws JSONException {
+        error = false;
         tl = null;
         GetFacturaAsync factura = new GetFacturaAsync();
         String url = "http://mercayapp1.herokuapp.com/invoices/"+id;

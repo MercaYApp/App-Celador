@@ -1,3 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\Users\juang\Desktop\App-Celador\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.1.0\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
+        <dex dex="C:\Users\juang\Desktop\App-Celador\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-appindexing-8.1.0_2c5550a4e16a2cbd76eb29ef5ecd5d528903a52a.jar" />
+    </item>
+    <item
+        jar="C:\Users\juang\Desktop\App-Celador\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
+        <dex dex="C:\Users\juang\Desktop\App-Celador\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-8.1.0_0702ebd01b9e20112876d62de7a32b782253732d.jar" />
+    </item>
+    <item
+        jar="C:\Users\juang\Desktop\App-Celador\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="C:\Users\juang\Desktop\App-Celador\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-22.2.0_5ca2ad73bb36dd1fcbde4d517ad4aa5392b1664d.jar" />
+    </item>
+    <item
+        jar="C:\Users\juang\Desktop\App-Celador\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="C:\Users\juang\Desktop\App-Celador\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-21.0.3_d3136495e43ca6aab7605bfb2aefe443077870e0.jar" />
+    </item>
+    <item
+        jar="C:\Users\juang\Desktop\App-Celador\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="9b9ae2cbcb5e6cb589e5f04512b85a66d601321b">
+        <dex dex="C:\Users\juang\Desktop\App-Celador\app\build\intermediates\pre-dexed\debug\instant-run_99f2b9ea193dd6bddf36e130144b4f02640f2984.jar" />
+    </item>
+    <item
+        jar="C:\Users\juang\Desktop\App-Celador\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="C:\Users\juang\Desktop\App-Celador\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0_684a7199f86d2d9b5ac843c31bc8a02b7f180942.jar" />
+    </item>
+    <item
+        jar="C:\Users\juang\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="C:\Users\juang\Desktop\App-Celador\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0_2d4d741570b75c0686911cb45b954bd2e4a4810b.jar" />
+    </item>
+    <item
+        jar="C:\Users\juang\Desktop\App-Celador\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="affa36ae1b5e9375e0ff4eec2dd283abe4e2a763">
+        <dex dex="C:\Users\juang\Desktop\App-Celador\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_46f4b2d82ce962f3a030617665c0cde0fc8ece51.jar" />
+    </item>
+
+</items>
